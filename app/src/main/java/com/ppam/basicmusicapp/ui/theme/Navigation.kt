@@ -14,7 +14,7 @@ import com.ppam.basicmusicapp.Screen
 @Composable
 fun Navigation(navController: NavController, viewModel: MainViewModel, pd: PaddingValues) {
     NavHost(navController = navController as NavHostController,
-        startDestination = Screen.DrawerScreen.AddAccount.route,
+        startDestination = Screen.DrawerScreen.Account.route,
         modifier = Modifier.padding(pd)) {
         composable(Screen.DrawerScreen.Account.route) {
             AccountView()

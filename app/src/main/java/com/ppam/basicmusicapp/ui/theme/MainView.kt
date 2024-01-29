@@ -29,7 +29,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ppam.basicmusicapp.MainViewModel
-import com.ppam.basicmusicapp.Navigation
+import com.ppam.basicmusicapp.ui.theme.Navigation
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
