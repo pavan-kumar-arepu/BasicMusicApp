@@ -24,6 +24,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.ppam.basicmusicapp.ui.theme.AccountView
 import com.ppam.basicmusicapp.ui.theme.BasicMusicAppTheme
 import com.ppam.basicmusicapp.ui.theme.MainView
 
@@ -54,8 +55,10 @@ fun DrawerItem(
 
     val background = if (selected) Color.DarkGray else Color.White
     Row(
-        Modifier.fillMaxWidth()
-            .padding(horizontal = 8.dp, vertical = 16.dp).background(background)
+        Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 8.dp, vertical = 16.dp)
+            .background(background)
             .clickable {
                 onDrawerItemClicked()
             }) {
@@ -68,22 +71,5 @@ fun DrawerItem(
             text = item.dTitle,
             style = MaterialTheme.typography.bodyMedium
         )
-    }
-}
-
-
-@Composable
-fun Navigation(navController: NavController, viewModel: MainViewModel, pd: PaddingValues) {
-    NavHost(navController = navController as NavHostController,
-        startDestination = Screen.DrawerScreen.AddAccount.route,
-        modifier = Modifier.padding(pd)) {
-        composable(Screen.DrawerScreen.AddAccount.route) {
-
-        }
-
-        composable(Screen.DrawerScreen.Subscription.route) {
-
-        }
-
     }
 }
