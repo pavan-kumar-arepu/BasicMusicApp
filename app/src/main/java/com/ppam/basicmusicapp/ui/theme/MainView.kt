@@ -24,6 +24,7 @@ import kotlinx.coroutines.CoroutineScope
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.compose.foundation.lazy.items
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -44,6 +45,9 @@ fun MainView() {
     val navBackStackEntry by controller.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
+    val dialogOpen = remember {
+        mutableStateOf(false)
+    }
     val currentScreen = remember {
         viewModel.currentScreen.value
     }
@@ -78,6 +82,7 @@ fun MainView() {
                         }
                         if(item.dRoute == "add_account") {
                             // Open Dialog
+                            dialogOpen.value = true
                         } else {
                             controller.navigate(item.dRoute)
                             title.value = item.dTitle
@@ -88,7 +93,7 @@ fun MainView() {
         }
 
     ) {
-//        Text("Text", modifier = Modifier.padding(it))
         Navigation(navController = controller, viewModel = viewModel, pd = it)
+        AccountDialog(dialogOpen = dialogOpen)
     }
 }
