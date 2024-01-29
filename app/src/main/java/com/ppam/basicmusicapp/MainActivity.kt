@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,6 +20,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import com.ppam.basicmusicapp.ui.theme.BasicMusicAppTheme
 import com.ppam.basicmusicapp.ui.theme.MainView
 
@@ -61,7 +66,24 @@ fun DrawerItem(
         )
         Text(
             text = item.dTitle,
-            style = MaterialTheme.typography.displayLarge
+            style = MaterialTheme.typography.bodyMedium
         )
+    }
+}
+
+
+@Composable
+fun Navigation(navController: NavController, viewModel: MainViewModel, pd: PaddingValues) {
+    NavHost(navController = navController as NavHostController,
+        startDestination = Screen.DrawerScreen.AddAccount.route,
+        modifier = Modifier.padding(pd)) {
+        composable(Screen.DrawerScreen.AddAccount.route) {
+
+        }
+
+        composable(Screen.DrawerScreen.Subscription.route) {
+
+        }
+
     }
 }

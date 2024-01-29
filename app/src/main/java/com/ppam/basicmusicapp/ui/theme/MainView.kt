@@ -26,6 +26,9 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.ppam.basicmusicapp.MainViewModel
+import com.ppam.basicmusicapp.Navigation
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -34,15 +37,20 @@ fun MainView() {
 
     val scaffoldState: ScaffoldState = rememberScaffoldState()
     val scope: CoroutineScope = rememberCoroutineScope()
+    val viewModel: MainViewModel = viewModel()
 
     // Allow us to find out which "view",we current are..
     val controller: NavController = rememberNavController()
     val navBackStackEntry by controller.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
+    val currentScreen = remember {
+        viewModel.currentScreen.value
+    }
+
     val title = remember {
         // Helps to change the currentScreen.title
-        mutableStateOf("")
+        mutableStateOf(currentScreen.title)
     }
 
     Scaffold(
@@ -78,7 +86,9 @@ fun MainView() {
                 }
             }
         }
+
     ) {
-        Text("Text", modifier = Modifier.padding(it))
+//        Text("Text", modifier = Modifier.padding(it))
+        Navigation(navController = controller, viewModel = viewModel, pd = it)
     }
 }
