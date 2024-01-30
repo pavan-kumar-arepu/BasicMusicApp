@@ -24,5 +24,17 @@ fun Navigation(navController: NavController, viewModel: MainViewModel, pd: Paddi
             Subscription()
         }
 
+        composable(Screen.BottomScreen.Home.route) {
+            Home()
+        }
+
+        composable(Screen.BottomScreen.Library.route) {
+            Library()
+        }
+
+        composable(Screen.BottomScreen.Browser.route) {
+            Browser()
+        }
+
     }
 }
