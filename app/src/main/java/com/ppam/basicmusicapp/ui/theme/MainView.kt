@@ -1,6 +1,7 @@
 package com.ppam.basicmusicapp.ui.theme
 
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.icons.Icons
@@ -24,11 +25,17 @@ import kotlinx.coroutines.CoroutineScope
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material.BottomNavigationItem
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ppam.basicmusicapp.MainViewModel
+import com.ppam.basicmusicapp.Screen
+import com.ppam.basicmusicapp.ScreenInBottom
 import com.ppam.basicmusicapp.ui.theme.Navigation
 import kotlinx.coroutines.launch
 
@@ -58,13 +65,25 @@ fun MainView() {
     }
 
     val bottomBar: @Composable () -> Unit = {
-
+        if(currentScreen is Screen.DrawerScreen || currentScreen == Screen.BottomScreen.Home) {
+            BottomNavigation(Modifier.wrapContentSize()) {
+                ScreenInBottom.forEach{
+                    item ->
+                    BottomNavigationItem(selected = currentRoute == item.bRoute, onClick = {
+                      controller.navigate(item.bRoute) }, icon = {
+                        Icon(painterResource(id = item.icon), contentDescription = item.bTitle)
+                    },
+                        label = { Text(text = item.bTitle)},
+                        selectedContentColor = Color.White,
+                        unselectedContentColor = Color.Black
+                    )
+                }
+            }
+        }
     }
 
     Scaffold(
-        bottomBar = {
-
-        },
+        bottomBar = bottomBar,
         topBar = {
             TopAppBar(title = { Text(text = title.value) },
                 navigationIcon = {
