@@ -1,8 +1,15 @@
-# Android Music App
+# Music App
+
 
 ## Overview
 
-This Android Music App just made out of passion for creating with JetPack and Kotlin. The app seamlessly integrates a modern UI with advanced features, offering users an immersive music experience.
+This Android Music App(though it's not a real Music app) is just made out of a passion with JetPack and Kotlin. The app seamlessly integrates a modern UI with advanced features, offering users an immersive music experience.
+
+## Author
+
+- **AREPU PAVAN KUMAR**
+- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/pavan-kumar-arepu-software-architect-engineer/)
+- **Email:** iosDeveloper.ipa@gmail.com
 
 ## Features
 
@@ -65,20 +72,8 @@ This Android Music App just made out of passion for creating with JetPack and Ko
 
 To run the app locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/your-repo.git`
+1. Clone the repository: `git clone https://github.com/pavan-kumar-arepu/BasicMusicApp/tree/Master`
 2. Open the project in Android Studio.
 3. Build and run the app on your emulator or physical device.
 
 Feel free to explore the codebase and provide feedback or contribute to the project!
-
-## Author
-
-- **Your Name**
-- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/your-profile/)
-- **Email:** your.email@example.com
-
-## Acknowledgments
-
-Special thanks to [JetBrains](https://www.jetbrains.com/) for providing an exceptional development environment with IntelliJ IDEA.
-
-**Note:** Replace placeholders such as "Your Name," "Your LinkedIn Profile," and "your.email@example.com" with your actual information.
