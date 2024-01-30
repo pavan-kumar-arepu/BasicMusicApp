@@ -1,5 +1,6 @@
 package com.ppam.basicmusicapp.ui.theme
 
+import android.util.Log
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
@@ -69,11 +70,16 @@ fun MainView() {
             BottomNavigation(Modifier.wrapContentSize()) {
                 ScreenInBottom.forEach{
                     item ->
-                    BottomNavigationItem(selected = currentRoute == item.bRoute, onClick = {
-                      controller.navigate(item.bRoute) }, icon = {
-                        Icon(painterResource(id = item.icon), contentDescription = item.bTitle)
+                    val isSelected = currentRoute == item.bRoute
+                    Log.d("Navigation", "Item: ${item.bTitle}, Current Route: $currentRoute, Is Selected: $isSelected")
+                    val tint = if(isSelected) Color.White else Color.Black
+
+                    BottomNavigationItem(selected = currentRoute == item.bRoute,
+                        onClick = { controller.navigate(item.bRoute) }, icon = {
+                        Icon(
+                            painterResource(id = item.icon), contentDescription = item.bTitle, tint = tint)
                     },
-                        label = { Text(text = item.bTitle)},
+                        label = { Text(text = item.bTitle, color = tint)},
                         selectedContentColor = Color.White,
                         unselectedContentColor = Color.Black
                     )
