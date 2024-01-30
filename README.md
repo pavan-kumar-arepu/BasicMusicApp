@@ -8,8 +8,8 @@ This Android Music App(though it's not a real Music app) is just made out of a p
 ## Author
 
 - **AREPU PAVAN KUMAR**
-- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/pavan-kumar-arepu-software-architect-engineer/)
-- **Email:** iosDeveloper.ipa@gmail.com
+- **LinkedIn:** [ArepuPavanKumar](https://www.linkedin.com/in/pavan-kumar-arepu-software-architect-engineer/)
+- **Email:** iosdeveloper.ipa@gmail.com
 
 ## Features
 
