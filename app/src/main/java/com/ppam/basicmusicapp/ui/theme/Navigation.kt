@@ -21,7 +21,7 @@ fun Navigation(navController: NavController, viewModel: MainViewModel, pd: Paddi
         }
 
         composable(Screen.DrawerScreen.Subscription.route) {
-
+            Subscription()
         }
 
     }

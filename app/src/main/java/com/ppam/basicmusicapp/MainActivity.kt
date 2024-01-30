@@ -53,7 +53,9 @@ fun DrawerItem(
     onDrawerItemClicked: () -> Unit
 ) {
 
-    val background = if (selected) Color.DarkGray else Color.White
+//    val background = if (selected) Color.DarkGray else Color.White
+    val background =  Color.White
+
     Row(
         Modifier
             .fillMaxWidth()
